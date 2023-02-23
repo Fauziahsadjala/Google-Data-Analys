@@ -1,0 +1,30 @@
+CREATE TABLE korean_dramas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    genre TEXT,
+    main_lead_1 TEXT,
+    main_lead_2 TEXT,
+    second_lead_1 TEXT,
+    second_lead_2 TEXT,
+    main_lead_relationship TEXT,
+    episode INTEGER,
+    year_release INTEGER)
+    
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("Through The Darkness", "crime", "Kim Nam Gil", "Jin Seon Kyu", "Kim So Jin","", "coworkers", 12, 2022)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("Summer Strike", "slice of life", "Im Si wan", "Seolhyun", "Shin Eun Soo", "Bang Jae Min", "dating", 12, 2022)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("Agency", "workplace", "Lee Bo Young", "Jo Sung Ha", "Son Na Eun", "Han Joon Woo", "rival", 16, 2022)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("The Red Sleeve", "sageuk", "Lee Jun Ho", "Lee Se Young", "Kang Hoon", "", "married", 17, 2021)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("Sky Castle", "satire", "Yum Jung Ah", "Lee Tae ran", "Kim Seo Hyung", "Kim Hye Yoon", "rival", 20, 2018)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("Hotel Del Luna", "romance fantasy", "Lee Ji Eun", "Yoo Jin Goo", "Park Yoona", "Lee Tae Sun", "romantics", 16, 2019)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("The Moon That Embraces The Sun", "sageuk", "Kim Soo Hyun", "Han Ga In", "Jung Il woo", "Kim Min Seo", "married", 20, 2012)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("Crash Landing On You", "romance", "Hyun Bin", "Son Ye Jin", "Kim Jung Hyung", "Seo Ji Hye", "dating", 16, 2019)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("Jirisan", "mistery", "Ju Ji Hoon", "Jun Ji Hyun", "Sung Dong Il", "Oh Jung Se", "coworkers", 16, 2021)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("One The Woman", "comedy", "Lee Ha Nee", "Lee Sang Yoon", "Jin Seo Yeon", "Song Won Suk", "dating", 16, 2021)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("One Dollar Lawyer", "law", "Namgoong Min", "Kim Ji Eun", "Park Jin Woo", "Choi Dae Hoon", "coworkers", 12, 2022)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("Descendants Of The Sun", "romance", "Song Joong Ki" , "Song Hye Kyo", "Jin Goo", "Kim Ji Won", "dating", 16, 2016)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("King Two Heart", "modern kingdom", "Lee Seung Gi", "Han Ji Won", "Jo Jung Suk", "Lee Yoon Jin", "married", 20, 2012)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("Its's Okay That's Love", "melodrama", "Jo In Sung", "Gong Hyo Jin", "Sung Dong Il", "Lee Kwang Soo", "married", 16, 2014)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("Pink Lipstick", "makjang", "Park Eun Hye", "Lee Joo Hyun", "Park Kwang Hyun", "Seo Yoo Jun", "married", 149, 2010)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("Dong Yi", "sageuk", "Han Hyo Joo", "Ji Jin Hee", "Lee So yeon", "Park Ha Sun", "married", 60, 2010)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("Under The Queen's Umbrella", "sageuk", "Kim Hye Soo", "Kim Hae Sook", "Moon Sang Min", "Oh Ye Ju", "rival", 16, 2022)
+INSERT INTO korean_dramas (title, genre, main_lead_1, main_lead_2, second_lead_1, second_lead_2, main_lead_relationship, episode, year_release) VALUES ("Beyond Evil", "mistery", "Shin Ha Kyun", "Yoo Jin Goo", "","", "coworkers", 16, 2021)
