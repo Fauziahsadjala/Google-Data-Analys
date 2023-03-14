@@ -1,0 +1,110 @@
+# Menggabungkan dataset
+SELECT *
+FROM `data-analis-363312.Cyclistic.202110`
+UNION ALL
+SELECT *
+FROM `data-analis-363312.Cyclistic.202111`
+UNION ALL
+SELECT *
+FROM `data-analis-363312.Cyclistic.202112`
+UNION ALL 
+SELECT *
+FROM `data-analis-363312.Cyclistic.202201`
+UNION ALL
+SELECT *
+FROM `data-analis-363312.Cyclistic.202202`
+UNION ALL
+SELECT *
+FROM `data-analis-363312.Cyclistic.202203`
+UNION ALL
+SELECT *
+FROM `data-analis-363312.Cyclistic.202204`
+UNION ALL
+SELECT *
+FROM `data-analis-363312.Cyclistic.202205`
+UNION ALL
+SELECT *
+FROM `data-analis-363312.Cyclistic.202206`
+UNION ALL
+SELECT *
+FROM `data-analis-363312.Cyclistic.202207`
+UNION ALL
+SELECT *
+FROM `data-analis-363312.Cyclistic.202208`
+UNION ALL
+SELECT *
+FROM `data-analis-363312.Cyclistic.202209`;
+#SETELAH DIGABUNGKAN DATASET MEMILIKI TOTAL 5.828.235 BARIS DATA
+# MEMBUAT TABEL SEMENTARA DARI HASIL PENGGABUNGAN DATASET AGAR LEBIH MUDAH UNTUK DI ANALISIS
+
+#MULAI MENGGUNAKAN DATASET TRIP_DATA_DIVVY UNTUK MELAKUKAN ANALISIS
+
+#MELIHAT DESKRIPSI TABEL 
+SELECT *
+FROM `data-analis-363312.Cyclistic.INFORMATION_SCHEMA.COLUMNS`
+WHERE table_name="trip_data_divvy";
+
+#MEMERIKSA DATA DUPLIKASI 
+SELECT
+  COUNT(*)
+FROM `data-analis-363312.Cyclistic.trip_data_divvy`
+GROUP BY ride_id
+HAVING COUNT(*) > 1;
+#TIDAK ADA DATA YANG TERDUPLIKASI, SEMUA DATA UNIK
+
+#MENGECEK NULL VALUE PADA SETIAP KOLOM
+SELECT
+  COUNT(ride_id) as ride_id,
+  COUNT(rideable_type) as rideable_type,
+  COUNT(started_at) as started_at,
+  COUNT(ended_at) as ended_at,
+  COUNT(start_station_name) as start_station_name,
+  COUNT(start_station_id) as atart_station_id,
+  COUNT(end_station_name) as end_station_name,
+  COUNT(end_station_name) as end_station_name,
+  COUNT(end_station_id) as end_station_id,
+  COUNT(start_lat) as start_lat,
+  COUNT(start_lng) as start_lng,
+  COUNT(end_lat) as end_lat,
+  COUNT(end_lng) as end_lng,
+  COUNT(member_casual) as member_casual
+FROM `data-analis-363312.Cyclistic.trip_data_divvy`;
+#PADA KOLOM start_station_name, Start_station_id, end_station_name,end_station id, end_lat, dan end_lng TERDAPAT NULL VALUE
+
+#MENGECEK JUMLAH NULL VALUE PADA KOLOM  start_station_name, start_station_id, end_station_name, dan end_station_id
+SELECT col_name,
+       COUNT(1) AS nulls_count,
+       round(100*(count(1)/
+                      (SELECT count(*)
+                       FROM `data-analis-363312.Cyclistic.trip_data_divvy`)), 2) AS percent_nulls
+FROM `data-analis-363312.Cyclistic.trip_data_divvy` t,
+     UNNEST(REGEXP_EXTRACT_ALL(TO_JSON_STRING(t), r'"(\w+)":null')) col_name
+GROUP BY col_name
+ORDER BY nulls_count DESC;
+#TERDAPAT 16.44% NULL VALUE PADA KOLOM start_station_name dan start_station_id
+#TERDAPAT 15.36% NULL VALUE PADA KOLOM end_station_name dan end_station_id
+#SERTA TERDAPAT 0.1% NULL VALUE PADA KOLOM end_lat dan end_lng
+
+#MEMERIKSA UNEXPECTED VALUE PADA KOLOM rideable_type
+SELECT DISTINCT
+  rideable_type
+FROM `data-analis-363312.Cyclistic.trip_data_divvy`;
+#TIDAK ADA UNEXPECTED VALUE PADA KOLOM rideable_type. TIPE SEPEDA SUDAH SESUIA DENGAN DOKUMENTASI. 
+
+#MEMERIKSA KONSISTENSI PADA KOLOM started_at dan ended_at
+
+#MEMERIKSA PENULISAN ID PADA KOLOM start_station_id dan end_station_id
+SELECT
+  MIN(LENGTH(start_station_id)) AS min_start_station_id,
+  MAX(LENGTH(start_station_id)) AS max_start_station_id,
+  MIN(LENGTH(end_station_id)) AS min_end_station_id,
+  MAX(LENGTH(end_station_id)) AS max_end_station_id
+FROM `data-analis-363312.Cyclistic.trip_data_divvy`;
+#PADA DUA KOLOM TERSEBUT ID DI TULIS DENGAN FORMAT YANG BERVARIASI, MULAI DARI ANGKA HINGGA VARIASI ANGKA DAN HURUF
+
+#MENGGANTI VALUE PADA KOLOM member_casual
+SELECT DISTINCT member_casual
+FROM `data-analis-363312.Cyclistic.trip_data_divvy`;
+
+#MENGUBAH CASUAL MENJADI CASUAL MEMBER DAN MEMBER MENJADI ANNUAL MEMBER
+
